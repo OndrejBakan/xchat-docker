@@ -8,6 +8,21 @@ services:
       - "6669:6669"
     networks:
       - irc_network
+  xchat-znc:
+    build:
+      context: ./xchat-znc
+    depends_on:
+      xchat-bttrw:
+        condition: service_started
+    ports:
+      - "1025:1025"
+      - "6667:6667"
+    volumes:
+      - ./xchat-znc/config/znc.conf:/var/lib/znc/.znc/configs/znc.conf
+    user:
+      znc
+    networks:
+      - irc_network
 
 networks:
   irc_network:
