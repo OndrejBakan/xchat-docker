@@ -1,0 +1,3 @@
+[submodule "xchat-bttrw/src"]
+	path = xchat-bttrw/src
+	url = https://github.com/OndrejBakan/xchat-bttrw.git
