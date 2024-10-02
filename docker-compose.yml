@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  xchat-bttrw:
+    build:
+      context: ./xchat-bttrw
+    ports:
+      - "6669:6669"
+    networks:
+      - irc_network
+
+networks:
+  irc_network:
+    driver: bridge
