@@ -2,27 +2,31 @@ version: '3'
 
 services:
   xchat-bttrw:
+    container_name: xchat-bttrw
     build:
       context: ./xchat-bttrw
     ports:
-      - "6669:6669"
+      - '6669:6669'
     networks:
       - irc_network
   xchat-znc:
+    container_name: xchat-znc
     build:
       context: ./xchat-znc
     depends_on:
       xchat-bttrw:
         condition: service_started
     ports:
-      - "1025:1025"
-      - "6667:6667"
+      - '1025:1025'
+      - '6667:6667'
     volumes:
-      - ./xchat-znc/config/znc.conf:/var/lib/znc/.znc/configs/znc.conf
-    user:
-      znc
+      - znc-data:/var/lib/znc
+    user: znc
     networks:
       - irc_network
+
+volumes:
+  znc-data:
 
 networks:
   irc_network:

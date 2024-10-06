@@ -12,6 +12,4 @@ USER znc
 
 EXPOSE 1025 6667
 
-RUN id znc
-
 CMD ["znc", "--foreground"]
