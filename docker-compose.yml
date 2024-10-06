@@ -2,6 +2,7 @@ version: '3'
 
 services:
   xchat-bttrw:
+    hostname: xchat-bttrw
     container_name: xchat-bttrw
     build:
       context: ./xchat-bttrw
